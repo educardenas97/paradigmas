@@ -18,7 +18,7 @@ def function13(regalos):
 
         return sorteo_lista
 
-def main():
+def main13():
     try:
         ''' Se define una lista y se invoca a funcion13 para 
             mostrar los resultados '''

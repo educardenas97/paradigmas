@@ -15,7 +15,7 @@ def function12(cadena):
         else:
             return False
 
-def main():
+def main12():
     ''' Solicita una cadena y llama a function12() para mostrar 
         el resultado '''
     try:

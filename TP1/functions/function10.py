@@ -15,10 +15,11 @@ def function10(numeros, numero):
                 contador = contador+1
         return contador
 
-def main():
+def main10():
     try:
         numeros = (5, 4, 3, 2, 1, 6, 45, 3, 6, 6, 6, 6, 6)
         numero = int(input("Ingrese un numero: "))
         print(function10(numeros, numero))
     except Exception as e:
         print(e)
+        raise 

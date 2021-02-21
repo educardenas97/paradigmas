@@ -20,7 +20,7 @@ def function11(numeros):
         return (minimo,maximo)
 
 
-def main():
+def main11():
     numeros = (5, 4, 3, -2, 1, 6, 455, 3, 6, 6, 6, 6, 6)
     try:
         resultado = function11()
