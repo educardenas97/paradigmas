@@ -1,5 +1,6 @@
 from funciones import *
 
+
 def main4():
     '''Solicita un valor N y luego invoca a
        funcion4(N) para imprimir el resultado.'''
@@ -8,6 +9,7 @@ def main4():
         print('Lista de numeros: ', function4(nro))
     except Exception as e:
         print('Ha ocurrido un error al generar la lista \n ' + str(e))
+        raise
 
 
 def main5():
@@ -18,6 +20,7 @@ def main5():
         print('El numero corresponde al mes: ' + function5(nro))
     except Exception as e:
         print('Ha ocurrido un error ' + str(e))
+        raise
 
 
 def main6():
@@ -28,6 +31,7 @@ def main6():
         print(function6(numero))
     except Exception as e:
         print('Ha ocurrido un error ' + str(e))
+        raise
 
 
 def main7():
@@ -38,6 +42,7 @@ def main7():
         print(function7(valor, asc=False))
     except Exception as e:
         print('Ha ocurrido un error: ' + str(e))
+        raise
 
 
 def main8():
@@ -48,7 +53,8 @@ def main8():
         caracter = input('Ingrese un caracter: ')
         print(function8(cadena, caracter))
     except Exception as e:
-        print('Ha ocurrido un error')
+        print('Ha ocurrido un error' + str(e))
+        raise
 
 
 def main9():
@@ -58,4 +64,5 @@ def main9():
         cadena = input("Ingrese una cadena: ")
         print(function9(cadena))
     except Exception as e:
-        print('Ha ocurrido un error ')
+        print('Ha ocurrido un error ' + str(e))
+        raise

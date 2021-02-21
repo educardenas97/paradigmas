@@ -1,5 +1,6 @@
 import random
 
+
 def function4(n):
     '''Retorna una lista con enteros generados de 1 a N'''
     try:
@@ -52,13 +53,20 @@ def function6(numero):
 def function7(n, asc=True):
     ''' Recibe un numero n y retorna una lista ordenada generada
         de manera aleatoria. '''
-    lista = []
-    for i in range(n):
-        num_aleatorio = random.randint(0, 9)
-        lista.append(num_aleatorio)
+    try:
+        if n == None:
+            raise ValueError
+    except Exception as e:
+        print('Argumento no valido' + str(e))
+        raise 
+    else:
+        lista = []
+        for i in range(n):
+            num_aleatorio = random.randint(0, 9)
+            lista.append(num_aleatorio)
 
-    lista.sort(reverse=asc)  # ordena la lista
-    return lista
+        lista.sort(reverse=asc)  # ordena la lista
+        return lista
 
 
 def function8(cadena, caracter):
