@@ -13,7 +13,9 @@ def function7(n, asc=True):
     return lista
 
 
-def main7():
+def main():
+    ''' Solicita un entero e invoca a la function7
+        para mostrar el resultado '''
     try:
         valor = int(input('Ingrese un valor: '))
         print(function7(valor, asc=False))
