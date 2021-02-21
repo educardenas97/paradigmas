@@ -27,3 +27,4 @@ def main():
         print(function13(regalos))
     except Exception as e:
         print('Ha ocurrido un error ' + str(e))
+        raise 

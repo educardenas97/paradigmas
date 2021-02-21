@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 def function10(numeros, numero):
+    ''' Recibe una lista con numeros y un numero
+        devuelve las apariciones de dicho numero en la lista proporcionada. '''
     try:
         if len(numeros) < 1 or numero == None:
             raise ValueError
