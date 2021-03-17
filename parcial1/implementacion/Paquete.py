@@ -30,26 +30,36 @@ class PaqueteChico(Paquete):
         super().__init__(**kwargs)
     
     def calcular_costo(self, transporte):
+        '''Implementacion del metodo abstracto para el calculo del costo
+        para los paquetes pequeños'''
         return self.peso * transporte.tarifa
 
 
 class PaqueteMediano(Paquete):
+    '''Clase que representa a los paquetes medianos de entre 1.5 y 4kg'''
+    PaqueteMediano.descuento = 0.03
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        descuento = 0.03
 
     def calcular_costo(self, transporte):
+        '''Implementacion del metodo abstracto para el calculo del costo
+        para los paquetes medianos'''
         total = self.peso * transporte.tarifa
         neto = total - (total*descuento)
         return neto
     
 
 class PaqueteGrande(Paquete):
+    '''Clase que representa a los paquetes grandes de 4kg en adelante'''
+    PaqueteGrande.descuento = 0.05
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        descuento = 0.05
 
     def calcular_costo(self, transporte):
+        '''Implementacion del metodo abstracto para el calculo del costo
+        para los paquetes grandes'''
         total = self.peso * transporte.tarifa
-        neto = total - (total*descuento)
+        neto = total - (total*PaqueteGrande.descuento)
         return neto
