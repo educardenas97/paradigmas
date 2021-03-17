@@ -4,10 +4,11 @@ import datetime
 import Transporte
 
 class Paquete(metaclass=ABCMeta):
-    ''' Clase abstracta de Paquete '''
+    '''Clase abstracta de Paquete'''
     total_paquetes = 0
     
-    def __init__(self, peso, fecha):
+    def __init__(self, nombre, peso, fecha):
+        self.nombre = nombre
         self.codigo = random.randint(1, 11)
         self.peso = peso
         self.fecha_recepcion = fecha
@@ -16,7 +17,7 @@ class Paquete(metaclass=ABCMeta):
 
     def __str__(self):
         '''Genera una cadena con los datos del paquete'''
-        return '{}, {}, {}'.format(self.codigo, self.peso, self.fecha_recepcion)
+        return 'Codigo:{},\t Nombre:{}, \t Peso:{}, \t Recepcion:{}'.format(self.codigo, self.nombre, self.peso, self.fecha_recepcion.strftime('%a %d/%b/%Y'))
 
     @abstractmethod
     def calcular_costo():
