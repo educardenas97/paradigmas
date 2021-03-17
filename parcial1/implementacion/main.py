@@ -21,4 +21,4 @@ def main():
     fast.consultar_embarque(avion)
 
 
-main()
+main() 

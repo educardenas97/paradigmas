@@ -4,6 +4,7 @@ import datetime as date
 import time
 import sys
 
+
 class Empresa:
     '''Clase Empresa, no se requieren parametros para instanciarla'''
     def __init__(self):
