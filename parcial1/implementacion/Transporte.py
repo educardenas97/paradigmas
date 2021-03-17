@@ -8,11 +8,22 @@ class Transporte():
         self.tarifa = tarifa
         self.tiempo_entrega = dias
         self.limite_peso = limite
+
+        self.peso_embarque = 0
         self.lista_paquetes = []
 
-    def agregar_paquete(paquete):
-        self.lista_paquetes.append(paquete)
+    def agregar_paquete(self, paquete):
+        '''Lista de paquetes agregados en espera de salida'''
+        if self.peso_embarque+paquete.peso < self.limite_peso:
+            self.lista_paquetes.append(paquete)
+            self.peso_embarque += paquete.peso
+            return True
+        else:
+            return False
 
+    def estimar_fecha_entrega(self):
+        '''Estimación de la posible fecha de entrega'''
+        return self.fecha_salida + datetime.timedelta(days=self.tiempo_entrega)
     
 
 class TransporteMaritimo(Transporte):
