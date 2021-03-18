@@ -1,3 +1,8 @@
+_author__ = "Eduardo Gomez"
+__email__ = "eduardocardenas97@fpuna.edu.py"
+__status__ = "Prototype"
+
+
 import datos
 import Paquete
 import Transporte
