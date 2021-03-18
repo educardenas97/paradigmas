@@ -18,8 +18,8 @@ class Paquete(metaclass=ABCMeta):
 
     def __str__(self):
         '''Genera una cadena con los datos del paquete'''
-        return 'Codigo:{},\t Nombre:{}, \t Peso:{}Kg, \t Recepcion:{}'
-        .format(self.codigo, self.nombre, self.peso, self.fecha_recepcion.strftime('%a %d/%b/%Y'))
+        return 'Codigo:{},\t Nombre:{}, \t Peso:{}Kg, \t Recepcion:{}'.format(self.codigo,
+         self.nombre, self.peso, self.fecha_recepcion.strftime('%a %d/%b/%Y'))
 
     @abstractmethod
     def calcular_costo():

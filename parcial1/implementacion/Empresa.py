@@ -19,7 +19,11 @@ class Empresa:
             sys.stdout.flush()
         #se asignan paquetes al transporte
         for paquete in paquetes:
-            transporte.agregar_paquete(paquete)
+            try:
+                if not transporte.agregar_paquete(paquete):
+                    raise Exception('Capacidad del transporte excedida, paquete:{}'.format(paquete.codigo))
+            except Exception as e:
+                raise
 
     def consultar_embarque(self, transporte):
         print("\n----------Ticket de embarco--------")

@@ -25,7 +25,7 @@ def paquetes():
 def transporte(tipo):
     if tipo == "Maritimo":
         return Transporte.TransporteMaritimo(nombre="Buque 091",
-            tarifa=9, dias=30, limite=8000, fecha=date.datetime(2018, 6, 1))
+            tarifa=9, dias=30, limite=2000, fecha=date.datetime(2018, 6, 1))
     if tipo == "Aereo":
         return Transporte.TransporteAereo(nombre="Boing 766",
-            tarifa=22, dias=3, limite=700, fecha=date.datetime(2018, 6, 1))
+            tarifa=22, dias=3, limite=300, fecha=date.datetime(2018, 6, 1))

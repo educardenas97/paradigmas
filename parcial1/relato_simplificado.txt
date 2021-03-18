@@ -1,0 +1,15 @@
+Problema a resolver:
+FastShipping S.A. es una empresa de courrier que recepciona pedidos en Miami (EEUU) y los importa a Asunción (Paraguay). Dicha empresa ofrece los siguientes servicios:
+
+Envíos Marítimos: Estos cuentan con una salida mensual y llegada estimada a destino en aproximadamente 1 mes. El costo del servicios es de 9$/kg. 
+Envíos Aéreos: Este servicio cuenta con 3 salidas semanales desde Miami y el tiempo de entrega es 4 días. El costo del servicio es de 22$/kg.
+* ambos servicios tienen una capacidad limitada de transporte de 2000 y 300kg respectivamente.
+
+Los paquetes son recepcionados, registrados y clasificados en el extrangero. Se clasifican según su peso:
+1. Ligero: 0.01 - 1.5kg
+2. Normal: 1.5 - 4kg
+3. Pesado: 4kg en adelante
+
+Los paquetes pesados obtienen un descuento del 5% y los normales un 3%. Los paquetes ligeros no reciben ningún tipo de descuento o beneficio. 
+Se necesita realizar un análisis de cada envío a realizar, en este informe se debe mostrar el peso total del cargamento, así como el aprovechamiento del mismo, el costo de los paquetes y una estimación de la fecha de llegada. La empresa desea implementar un sistema hecho en Python3 que realice el registro, la asignación de salidas y el informe.
+

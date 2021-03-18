@@ -16,8 +16,12 @@ def main():
 
     buque = datos.transporte("Maritimo")
     avion = datos.transporte("Aereo")
-
-    fast.asignar_embarque(paquetes, avion)
+    
+    try:
+        fast.asignar_embarque(paquetes, avion)
+    except Exception as e:
+        print(e)
+    
     fast.consultar_embarque(avion)
 
 
