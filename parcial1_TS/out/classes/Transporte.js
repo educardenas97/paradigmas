@@ -13,7 +13,7 @@ class Transporte {
         this.peso_embarque = 0;
     }
     cargar_paquete(paquete) {
-        if (this.limite_peso < this.peso_embarque + paquete.peso) {
+        if (this.limite_peso > this.peso_embarque + paquete.peso) {
             this.lista_paquetes.push(paquete);
             this.peso_embarque += paquete.peso;
             return true;

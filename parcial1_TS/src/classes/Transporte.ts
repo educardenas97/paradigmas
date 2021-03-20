@@ -21,7 +21,7 @@ export abstract class Transporte{
     }
 
     cargar_paquete(paquete: Paquete): boolean{
-        if (this.limite_peso < this.peso_embarque + paquete.peso){
+        if (this.limite_peso > this.peso_embarque + paquete.peso){
             this.lista_paquetes.push(paquete);
             this.peso_embarque += paquete.peso;
             return true;

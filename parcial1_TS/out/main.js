@@ -6,7 +6,9 @@ const Transporte_1 = require("./classes/Transporte");
 function crear_paquetes() {
     return [new Paquete_1.PaqueteChico("Noctua", 1, new Date("2015-03-25")),
         new Paquete_1.PaqueteChico("Redux", 2, new Date("2015-03-25")),
-        new Paquete_1.PaqueteGrande("Samsung", 78, new Date("2016-03-25"))];
+        new Paquete_1.PaqueteChico("Redux", 2, new Date("2015-03-25")),
+        new Paquete_1.PaqueteMediano("Redux 2", 150, new Date("2015-03-25")),
+        new Paquete_1.PaqueteGrande("Samsung", 780, new Date("2016-03-25"))];
 }
 function main() {
     let frontliner = new Empresa_1.Empresa();

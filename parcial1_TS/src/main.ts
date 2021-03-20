@@ -5,7 +5,9 @@ import { Transporte, TransporteAereo } from "./classes/Transporte";
 function crear_paquetes(): Paquete[] {
     return [new PaqueteChico("Noctua", 1, new Date("2015-03-25")), 
             new PaqueteChico("Redux", 2, new Date("2015-03-25")),
-            new PaqueteGrande("Samsung", 78, new Date("2016-03-25"))];
+            new PaqueteChico("Redux", 2, new Date("2015-03-25")),
+            new PaqueteMediano("Redux 2", 150, new Date("2015-03-25")),
+            new PaqueteGrande("Samsung", 780, new Date("2016-03-25"))];
 }
 
 function main() {
