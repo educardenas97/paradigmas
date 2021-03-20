@@ -36,3 +36,9 @@ export class TransporteAereo extends(Transporte){
         super(nombre, fecha_salida, tarifa, limite_peso, tiempo_entrega);
     }
 }
+
+export class TransporteMaritimo extends(Transporte){
+    constructor(nombre: string, fecha_salida: Date, tarifa: number, limite_peso: number, tiempo_entrega: number){
+        super(nombre, fecha_salida, tarifa, limite_peso, tiempo_entrega);
+    }
+}
