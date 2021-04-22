@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransporteAereo = exports.Transporte = void 0;
+exports.TransporteMaritimo = exports.TransporteAereo = exports.Transporte = void 0;
 class Transporte {
     constructor(nombre, fecha_salida, tarifa, limite_peso, tiempo_entrega) {
         this.lista_paquetes = [];
@@ -30,3 +30,9 @@ class TransporteAereo extends (Transporte) {
     }
 }
 exports.TransporteAereo = TransporteAereo;
+class TransporteMaritimo extends (Transporte) {
+    constructor(nombre, fecha_salida, tarifa, limite_peso, tiempo_entrega) {
+        super(nombre, fecha_salida, tarifa, limite_peso, tiempo_entrega);
+    }
+}
+exports.TransporteMaritimo = TransporteMaritimo;
