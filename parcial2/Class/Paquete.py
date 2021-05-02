@@ -1,33 +1,35 @@
 from abc import ABCMeta, abstractmethod
-import random
-import datetime
-import Transporte
-
 
 class Paquete(metaclass=ABCMeta):
-    '''Clase abstracta de Paquete'''
-    cantidad_paquetes = 0
-
-    def __init__(self, identificador, description, peso, fecha):
-        self.nombre = nombre
-        self.identificador = identificador
+    def __init__(self, peso, codigo, descripcion):
         self.peso = peso
-        self.fecha_recepcion = fecha
-        #Se incrementa la cantidad de instancias
-        Paquete.cantidad_paquetes += 1
-
-    def __str__(self):
-        '''Genera una cadena con los datos del paquete'''
-        return 'Codigo:{},\t Nombre:{}, \t Peso:{}Kg, \t Recepcion:{}'.format(self.codigo,
-                                                                              self.nombre, self.peso, self.fecha_recepcion.strftime('%a %d/%b/%Y'))
+        self.codigo = codigo
+        self.descripcion = descripcion
 
     @abstractmethod
-    def calcular_costo():
-        '''Metodo abstracto para calcular el costo segun el tipo
-        de paquete'''
+    def calcular_precio():
         pass
 
-    @staticmethod
-    def obtener_total_paquetes():
-        '''Metodo estatico que retorna la cantidad de instancias de paquetes'''
-        return total_paquetes
+class PaqueteChico(Paquete):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def __calcular_precio(self, costo_por_kg):
+        return self.peso * costo_por_kg
+
+class PaqueteMediano(Paquete):
+    def __init__(self, **kwargs, impuesto=3):
+        super().__init__(**kwargs)
+        self.impuesto = impuesto
+
+    def calcular_precio(self, costo_por_kg):
+        return (self.peso * costo_por_kg) + self.impuesto
+
+class PaqueteGrande(Paquete):
+    def __init__(self, **kwargs, impuesto=10, valor_articulo):
+        super().__init__(**kwargs)
+        self.impuesto = impuesto
+        self.valor_articulo = valor_articulo
+
+    def calcular_precio(self, costo_por_kg):
+        return (self.peso * costo_por_kg) + self.impuesto + (valor_articulo*0.3)
