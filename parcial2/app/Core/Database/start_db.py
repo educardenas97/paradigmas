@@ -8,11 +8,9 @@ db = DB(storage)
 connection = db.open()
 root = connection.root()
 
+root['Clientes'] = ['Pepe', 'Juana', 'ange']
+transaction.commit()
 
-def insert(paquete):
-    root['Paquete'] = paquete
-    transaction.commit()
-    connection.close()
+print(root.items())
+connection.close()
 
-def find(object_name):
-    return root[object_name]

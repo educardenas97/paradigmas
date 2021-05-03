@@ -10,9 +10,7 @@ class Paquete(metaclass=ABCMeta):
     def calcular_precio():
         pass
 
-    def __str__(self):
-        '''Genera una cadena con los datos del paquete'''
-        return 'Codigo:{}, \t Peso:{}Kg, \t Descripcion'.format(self.codigo, self.peso, self.descripcion)
+    
 
 class PaqueteChico(Paquete):
     def __init__(self, peso, codigo, descripcion):
