@@ -12,15 +12,15 @@ class Persona(metaclass=ABCMeta):
 
 class Cliente(Persona):
     '''Especialización de la clase Persona'''
-    def __init__(self, **kwargs, ruc=0):
-        super().__init__(**kwargs)
+    def __init__(self, nombre, apellido, ci, ruc=0):
+        super().__init__(nombre, apellido, ci)
         self.ruc = ruc        
         self.identificador = random.randint(0, 9) + super().ci
 
 class Empleado(Persona):
     '''Especialización de la clase Persona'''
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, nombre, apellido, ci):
+        super().__init__(nombre, apellido, ci)
     
     def registrar_cliente(nombre, apellido, ci, ruc):
         cliente = Cliente(**kwargs)
