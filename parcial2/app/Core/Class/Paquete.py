@@ -10,7 +10,6 @@ class Paquete(metaclass=ABCMeta):
     def calcular_precio():
         pass
 
-    
 
 class PaqueteChico(Paquete):
     def __init__(self, peso, codigo, descripcion):
@@ -18,6 +17,9 @@ class PaqueteChico(Paquete):
 
     def calcular_precio(self, costo_por_kg):
         return self.peso * costo_por_kg
+
+    def __str__(self):
+        return "peso: {}, descripcion: {}".format(self.peso, self.descripcion)
 
 class PaqueteMediano(Paquete):
     def __init__(self, peso, codigo, descripcion, impuesto):

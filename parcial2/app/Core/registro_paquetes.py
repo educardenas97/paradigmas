@@ -1,13 +1,13 @@
 from Class import Paquete
 
-from Database import paquetes_persist as db
+from Database import Database as DB
 
+db = DB.Database('app/Core/Database/Data.fs')
 
 def registrar_paquete(codigo, peso, descripcion):
     if peso > 10:
         paquete = Paquete.PaqueteChico(peso, codigo, descripcion)
-        db.insert(paquete)
-        print(paquete.__str__()) 
+        db.insert(paquete, 'Paquete')
         print(db.find('Paquete'))
     elif peso > 30:
         paquete = Paquete.PaqueteMediano(peso, codigo, descripcion)
@@ -17,4 +17,4 @@ def registrar_paquete(codigo, peso, descripcion):
         print('Paquete Creado')
 
 
-registrar_paquete(98992, 32, "Pepe packa")
+print(db.find('Paquete'))
