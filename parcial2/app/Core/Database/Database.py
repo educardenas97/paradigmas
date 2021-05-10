@@ -1,19 +1,13 @@
-from ZODB.FileStorage import FileStorage
-from ZODB.DB import DB
-import transaction
-
+import pickle
 
 class Database():
-    def __init__(self, path='app/Core/Database/Data.fs'):
-        self.storage = FileStorage(path)
-        self.db = DB(self.storage)
-        self.connection = self.db.open()
-        self.root = self.connection.root()
-
     def insert(self, object, object_name):
-        self.root[object_name] = object
-        transaction.commit()
-        self.connection.close()
+        self.outfile = open(object_name, 'wb')
+        pickle.dump(object, self.outfile)
+        self.outfile.close()
 
     def find(self, object_name):
-        return self.root[object_name]
+        infile = open(object_name, 'rb')
+        response = pickle.load(infile)
+        infile.close()
+        return response
