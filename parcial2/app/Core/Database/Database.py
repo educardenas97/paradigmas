@@ -2,9 +2,9 @@ import pickle
 
 class Database():
     def insert(self, object, object_name):
-        self.outfile = open(object_name, 'wb')
-        pickle.dump(object, self.outfile)
-        self.outfile.close()
+        outfile = open(object_name, 'wb')
+        pickle.dump(object, outfile)
+        outfile.close()
 
     def find(self, object_name):
         infile = open(object_name, 'rb')

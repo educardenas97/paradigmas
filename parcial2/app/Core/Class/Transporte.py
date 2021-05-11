@@ -1,5 +1,3 @@
-import datetime
-
 class Transporte():
     def __init__(self, fecha_salida, capacidad, precio_por_kg):
        self.fecha_salida = fecha_salida
@@ -7,6 +5,7 @@ class Transporte():
        self.precio_por_kg = precio_por_kg
        self.paquetes = []
        self.capacidad_utilizada = 0
+       self.capacidad_disponible = capacidad - self.capacidad_utilizada
 
     def agregar_paquete(self, paquete):
         if self.capacidad_utilizada+paquete.peso < self.capacidad:

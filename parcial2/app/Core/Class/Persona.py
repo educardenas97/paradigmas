@@ -1,6 +1,6 @@
 import random
 from abc import ABCMeta, abstractmethod
-
+from . import Paquete
 
 class Persona(metaclass=ABCMeta):
     def __init__(self, nombre, apellido, ci):
@@ -26,6 +26,17 @@ class Empleado(Persona):
     def __init__(self, nombre, apellido, ci, fecha_inicio):
         super().__init__(nombre, apellido, ci)
         self.fecha_inicio = fecha_inicio
+
+    def agregar_paquete(self, peso, codigo, descripcion, valor_articulo=0):
+        if peso > 0 and peso <= 100:
+            return Paquete.PaqueteChico(peso, codigo, descripcion)
+        elif peso > 100 and peso <= 2000:
+            return Paquete.PaqueteMediano(peso, codigo, descripcion)
+        elif peso > 2000 and valor_articulo != 0:
+            return Paquete.PaqueteGrande(peso, codigo, descripcion, valor_articulo)
+        else:
+            raise ValueError('valor_articulo: {}'.format(valor_articulo))
+            return False
 
     def __str__(self):
         return "nombre: {}, apellido: {}, ci: {}, fecha_inicio: {}".format(self.nombre, self.apellido, self.ci, self.fecha_inicio)
