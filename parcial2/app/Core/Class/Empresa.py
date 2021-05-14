@@ -23,5 +23,5 @@ class Empresa:
         pass
 
     def __str__(self):
-        return "razon_social: {}, direccion: {},\n paquetes_pendientes: {},\n paquetes_entregados: {},\n transportes_disponibles: {},\n embarques_realizados: {},\n empleados: {},\n clientes: {}".format(self.razon_social,
-        self.direccion, self.paquetes_pendientes, self.paquetes_entregados, self.transportes_disponibles, self.embarques_realizados, self.empleados, self.clientes)
+        return "razon_social: {}, direccion: {},\n paquetes_pendientes: {},\n paquetes_transito: {} ,\n paquetes_entregados: {},\n transportes_disponibles: {},\n embarques_realizados: {},\n empleados: {},\n clientes: {}".format(self.razon_social,
+        self.direccion, self.paquetes_pendientes.qsize(), self.paquetes_transito, self.paquetes_entregados, self.transportes_disponibles, self.embarques_realizados, self.empleados, self.clientes)

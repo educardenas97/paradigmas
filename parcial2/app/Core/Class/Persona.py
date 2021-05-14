@@ -13,10 +13,10 @@ class Persona(metaclass=ABCMeta):
 
 class Cliente(Persona):
     '''Especialización de la clase Persona'''
-    def __init__(self, nombre, apellido, ci, ruc=0):
+    def __init__(self, nombre, apellido, ci=0, ruc=0):
         super().__init__(nombre, apellido, ci)
         self.ruc = ruc        
-        self.identificador = random.randint(0, 9) + ci
+        self.identificador = (random.randint(0, 9) + ci) if ci != 0 else 0
 
     def __str__(self):
         return "nombre: {}, apellido: {}, ci: {}, ruc: {}, identificador: {}".format(self.nombre, self.apellido, self.ci, self.ruc, self.identificador)
@@ -27,7 +27,7 @@ class Empleado(Persona):
         super().__init__(nombre, apellido, ci)
         self.fecha_inicio = fecha_inicio
 
-    def agregar_paquete(self, peso, codigo, descripcion, valor_articulo=0):
+    def agregar_paquete(self, codigo, peso,  descripcion, valor_articulo=0):
         if peso > 0 and peso <= 100:
             return Paquete.PaqueteChico(peso, codigo, descripcion)
         elif peso > 100 and peso <= 2000:

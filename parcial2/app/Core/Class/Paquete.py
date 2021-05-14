@@ -20,13 +20,13 @@ class PaqueteChico(Paquete):
     def __init__(self, peso, codigo, descripcion):
         super().__init__(peso, codigo, descripcion)
 
-    def calcular_precio(self, transporte):
-        costo = transporte.costo_por_kg * self.peso
+    def calcular_precio(self, precio_por_kg):
+        costo = precio_por_kg * self.peso
         total = costo * (PaqueteChico.margen_ganancia/100) + 1
         return total
 
     def __str__(self):
-        return "PaqueteChico: \n {}".format(super().__str__())
+        return "PaqueteChico: {}".format(super().__str__())
    
 class PaqueteMediano(Paquete):
     margen_ganancia = 10 #porcentual
@@ -35,14 +35,14 @@ class PaqueteMediano(Paquete):
         super().__init__(peso, codigo, descripcion)
         self.impuesto = impuesto
 
-    def calcular_precio(self, transporte):
-        costo = transporte.costo_por_kg * self.peso
+    def calcular_precio(self, precio_por_kg):
+        costo = precio_por_kg * self.peso
         precio_sin_impuesto = costo * ((PaqueteMediano.margen_ganancia/100) + 1)
         total = precio_sin_impuesto * ((self.impuesto/100) + 1)
         return total
 
     def __str__(self):
-        return "PaqueteMediano: \n {}".format(super().__str__())
+        return "PaqueteMediano: {}".format(super().__str__())
 
 class PaqueteGrande(Paquete):
     margen_ganancia = 5  # porcentual
@@ -52,12 +52,12 @@ class PaqueteGrande(Paquete):
         self.impuesto = impuesto
         self.valor_articulo = valor_articulo
 
-    def calcular_precio(self, transporte):
-        costo = transporte.costo_por_kg * self.peso
+    def calcular_precio(self, precio_por_kg):
+        costo = precio_por_kg * self.peso
         precio_sin_impuesto = costo * ((PaqueteGrande.margen_ganancia/100) + 1)
         impuesto_a_pagar = self.valor_articulo  * ((self.impuesto/100) + 1)
         total = precio_sin_impuesto + impuesto_a_pagar
         return total
 
     def __str__(self):
-        return "PaqueteGrande: \n {}".format(super().__str__())
+        return "PaqueteGrande: {}".format(super().__str__())

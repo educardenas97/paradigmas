@@ -14,10 +14,11 @@ class Ticket(metaclass=ABCMeta):
         return "peso: {}, fecha: {}, costo:{} \n".format(self.peso, self.fecha, self.costo)
 
 class TicketRecepcion(Ticket):
-    def __init__(self, fecha_embarque, costo, paquete):
+    def __init__(self, fecha_embarque, costo, paquete, cliente):
         super().__init__(paquete.peso, fecha_embarque, costo)
         self.paquete = paquete
         self.fecha_embarque = fecha_embarque
+        self.cliente = cliente
 
     def imprimir_ticket(self):
         return {
@@ -32,7 +33,7 @@ class TicketRecepcion(Ticket):
         }
     
     def __str__(self):
-        return "{}, paquete: {}, fecha_embarque: {}".format(super().__str__(), self.paquete, self.fecha_embarque)
+        return " {} {} \n fecha_embarque: {}, cliente: {} \n".format(super().__str__(), self.paquete, self.fecha_embarque, self.cliente)
 
 class TicketEmbarque(Ticket):
     def __init__(self, fecha, costo, transporte):
@@ -48,4 +49,4 @@ class TicketEmbarque(Ticket):
         }
 
     def __str__(self):
-        return "{}, transporte: {}".format(super().__str__(), self.transporte)
+        return " {}, transporte: {}".format(super().__str__(), self.transporte)

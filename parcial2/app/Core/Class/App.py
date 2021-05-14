@@ -25,7 +25,7 @@ class App():
 
     def registrar_transporte(self, fecha_salida, precio_por_kg, capacidad):
         transporte = Transporte.Transporte(fecha_salida, capacidad, precio_por_kg)
-        self.empresa.transportes_disponibles.agregar_transporte(transporte)
+        self.empresa.agregar_transporte(transporte)
         #self.db.insert(self.empresa, 'empresa')
 
     
@@ -34,18 +34,27 @@ class App():
 
         for transporte in self.empresa.transportes_disponibles:
             if transporte.agregar_paquete(paquete):
-                ticket = App.generar_ticket_recepcion(transporte, paquete)
+                cliente = App.determinar_cliente(self.empresa.clientes, paquete)
+                ticket = App.generar_ticket_recepcion(transporte, paquete, cliente)
                 self.empresa.paquetes_transito.append(ticket)
                 #self.db.insert(self.empresa, 'empresa')
-                return
+                return transporte
 
         self.empresa.paquetes_pendientes.put(paquete)
         #self.db.insert(self.empresa, 'empresa')
+        return self.empresa.paquetes_pendientes.qsize()
 
-    def generar_ticket_recepcion(transporte, paquete):
+    def generar_ticket_recepcion(transporte, paquete, cliente):
         fecha_embarque = transporte.fecha_salida
-        costo = paquete.calcular_precio(transporte)
-        ticket = Ticket.TicketRecepcion(fecha_embarque, costo, paquete)
+        costo = paquete.calcular_precio(transporte.precio_por_kg)
+        ticket = Ticket.TicketRecepcion(fecha_embarque, costo, paquete, cliente)
         return ticket
 
-    
+    def determinar_cliente(clientes, paquete):
+        for cliente in clientes:
+            if cliente.identificador == paquete.codigo:
+                return cliente
+        
+        return Persona.Cliente('Desconocido', 'Desconocido')
+
+        
