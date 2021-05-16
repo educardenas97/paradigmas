@@ -17,7 +17,6 @@ class Empresa:
     def agregar_transporte(self, transporte):
         self.transportes_disponibles.append(transporte)
         self.transportes_disponibles.sort(key=lambda transporte: transporte.fecha_salida)
-
     
     def calcular_rentabilidad():
         pass
