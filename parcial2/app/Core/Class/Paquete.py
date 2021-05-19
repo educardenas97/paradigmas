@@ -1,6 +1,9 @@
 from abc import ABCMeta, abstractmethod
 
+
 class Paquete(metaclass=ABCMeta):
+    ''' Clase abstracta de Paquete '''
+
     def __init__(self, peso, codigo, descripcion):
         self.peso = peso/1000
         self.codigo = codigo
@@ -15,12 +18,22 @@ class Paquete(metaclass=ABCMeta):
 
 
 class PaqueteChico(Paquete):
+    ''' Especialización de la clase Paquete '''
+
     margen_ganancia = 12 #porcentual
 
     def __init__(self, peso, codigo, descripcion):
         super().__init__(peso, codigo, descripcion)
 
     def calcular_precio(self, precio_por_kg):
+        """ 
+        Calculo del precio para un paquete chico
+        Parametros: 
+            argumento1(int): Precio por Kg del transporte
+
+        Retorna: 
+            int: Precio del Paquete
+        """
         costo = precio_por_kg * self.peso
         total = costo * (PaqueteChico.margen_ganancia/100) + 1
         return total
@@ -28,7 +41,10 @@ class PaqueteChico(Paquete):
     def __str__(self):
         return "PaqueteChico: {}".format(super().__str__())
    
+
 class PaqueteMediano(Paquete):
+    ''' Especialización de la clase Paquete '''
+
     margen_ganancia = 10 #porcentual
 
     def __init__(self, peso, codigo, descripcion, impuesto=3):
@@ -36,6 +52,15 @@ class PaqueteMediano(Paquete):
         self.impuesto = impuesto
 
     def calcular_precio(self, precio_por_kg):
+    
+        """ 
+        Calculo del precio para un paquete mediano
+        Parametros: 
+            argumento1(int): Precio por Kg del transporte
+
+        Retorna: 
+            int: Precio del Paquete
+        """
         costo = precio_por_kg * self.peso
         precio_sin_impuesto = costo * ((PaqueteMediano.margen_ganancia/100) + 1)
         total = precio_sin_impuesto * ((self.impuesto/100) + 1)
@@ -44,7 +69,10 @@ class PaqueteMediano(Paquete):
     def __str__(self):
         return "PaqueteMediano: {}".format(super().__str__())
 
+
 class PaqueteGrande(Paquete):
+    ''' Especialización de la clase Paquete '''
+
     margen_ganancia = 5  # porcentual
 
     def __init__(self, peso, codigo, descripcion, valor_articulo, impuesto=8):
@@ -53,6 +81,15 @@ class PaqueteGrande(Paquete):
         self.valor_articulo = valor_articulo
 
     def calcular_precio(self, precio_por_kg):
+        """ 
+        Calculo del precio para un paquete grande
+        Parametros: 
+            argumento1(int): Precio por Kg del transporte
+
+        Retorna: 
+            int: Precio del Paquete
+        """
+
         costo = precio_por_kg * self.peso
         precio_sin_impuesto = costo * ((PaqueteGrande.margen_ganancia/100) + 1)
         impuesto_a_pagar = self.valor_articulo  * ((self.impuesto/100) + 1)
