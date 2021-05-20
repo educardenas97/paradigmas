@@ -54,5 +54,5 @@ class Transporte():
         return self.capacidad_utilizada * self.precio_por_kg
 
     def __str__(self):
-        return "fecha_salida: {}, fecha_llegada: {}, capacidad: {}, precio_por_kg: {}, capacidad_utilizada: ".format(self.fecha_salida, self.fecha_llegada,
+        return "fecha_salida: {}, fecha_llegada: {}, capacidad: {}, precio_por_kg: {}, capacidad_utilizada: {}".format(self.fecha_salida, self.fecha_llegada,
         self.capacidad, self.precio_por_kg, self.capacidad_utilizada)

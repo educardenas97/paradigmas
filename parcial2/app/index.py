@@ -1,3 +1,1 @@
-from Class.Paquete import *
-from Class import Persona
-from Class import Transporte
+from app.View.menu import *

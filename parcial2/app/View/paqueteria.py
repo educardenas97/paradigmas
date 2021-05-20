@@ -1,25 +1,28 @@
 from app.Core.main import *
-from app.View.funciones import *
-
+from app.View import funciones
 
 def main():
+    funciones.main(menu)
+
+def menu():
     items = ["Registrar Paquete", "Paquetes en Transito", "Paquetes pendientes", "Paquetes entregados", "Salir"]
-    options = sub_menu(items, "Menu Paqueteria")
+    options = funciones.sub_menu(items, "Menu Paqueteria")
+
     while options != len(items):
-        if options == len(items):
-            print("Exit()")
-        elif options == 1:
-            mostrar_lista([registrar_paquete()], "Sistema ->", False)
+        if options == 1:
+            funciones.mostrar_lista([registrar_paquete()], "Sistema ->", False)
         elif options == 2:
-            mostrar_lista(paquetes_en_transito(), "Paquetes en transito")
+            funciones.mostrar_lista(paquetes_en_transito(), "Paquetes en transito")
         elif options == 3:
-            mostrar_lista([paquetes_pendientes()], "Cantidad: paquetes pendientes", False)
+            funciones.mostrar_lista([paquetes_pendientes()], "Cantidad: paquetes pendientes", False)
         elif options == 4:
-            mostrar_lista(paquetes_entregados(), "Paquetes en entregados")
+            funciones.mostrar_lista(paquetes_entregados(), "Paquetes en entregados")
         else:
             print("Opcion no permitida")
 
-        options = sub_menu(items, "Menu Paqueteria")
+        options = funciones.sub_menu(items, "Menu Paqueteria")
+
+    return True
 
 
 def registrar_paquete():

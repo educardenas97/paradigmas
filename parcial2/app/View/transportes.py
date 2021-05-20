@@ -1,21 +1,27 @@
 from app.Core.main import *
-from app.View.funciones import *
+from app.View import funciones
 import datetime
 
 def main():
+    funciones.main(menu)
+
+def menu():
     items = ["Registrar Transporte", "Ver transportes disponibles", "Salir"]
-    options = sub_menu(items, "Menu Transportes")
+    options = funciones.sub_menu(items, "Menu Transportes")
+
     while options != len(items):
-        if options == len(items):
-            print("Exit()")
-        elif options == 1:
-            mostrar_lista(registrar_transporte(), "Transporte registrado")
+        if options == 1:
+            funciones.mostrar_lista(registrar_transporte(), "Transporte registrado")
         elif options == 2:
-            mostrar_lista(mostrar_disponibles(), "Transportes disponibles")
+            funciones.mostrar_lista(
+                mostrar_disponibles(), "Transportes disponibles")
         else:
             print("Opcion no permitida")
             
-        options = sub_menu(items, "Menu Transportes")
+        options = funciones.sub_menu(items, "Menu Transportes")
+
+    return True
+
 
 def registrar_transporte():
     salida_fecha = formatear_fecha(input('Insertar fecha de salida con el siguiente formato: YYYY-MM-DD: '))

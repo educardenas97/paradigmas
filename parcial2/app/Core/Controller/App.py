@@ -10,8 +10,8 @@ class App():
     """
     Clase de aplicacion
     Parametros:
-        argumento1(string):Razón social de la empresa
-        argumento2(string):Dirección fisica del local
+        argumento1(str):Razón social de la empresa
+        argumento2(str):Dirección fisica del local
     """
 
 
@@ -26,8 +26,8 @@ class App():
         """
         Registro de empleado
         Parametros:
-            argumento1(string): nombre del empleado
-            argumento2(string): apellido
+            argumento1(str): nombre del empleado
+            argumento2(str): apellido
             argumento3(int): numero de identidad
         """
 
@@ -42,8 +42,8 @@ class App():
         """
         Registro de cliente
         Parametros:
-            argumento1(string): nombre del cliente
-            argumento2(string): apellido
+            argumento1(str): nombre del cliente
+            argumento2(str): apellido
             argumento3(int): numero de identidad
             argumento4(int): RUC del cliente. Este argumento es opcional
         """
@@ -91,7 +91,7 @@ class App():
         Parametros:
             argumento1(int): codigo identificador del paquete
             argumento2(int): peso del paquete en Gr
-            argumento3(string): breve descripcion del contenido
+            argumento3(str): breve descripcion del contenido
             argumento4(int): valor del articulo. (Parametro opcional)
 
         Retorna: Objeto(TicketRecepcion) o int
@@ -153,7 +153,7 @@ class App():
         Parametros:
             argumento1(int): codigo identificador del paquete
             argumento2(int): peso del paquete en Gr.
-            argumento3(string): breve descripcion del contenido del paquete
+            argumento3(str): breve descripcion del contenido del paquete
             argumento4(int): 
         """
 

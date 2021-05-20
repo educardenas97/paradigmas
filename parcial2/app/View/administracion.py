@@ -1,23 +1,29 @@
 from app.Core.main import *
-from app.View.funciones import *
+from app.View import funciones
 
 
 def main():
+    funciones.main(menu)
+
+
+def menu():
     items = [" Agregar Empleado", " Agregar Clientes", " Salir"]
-    options = sub_menu(items, "Menu Administración")
+    options = funciones.sub_menu(items, "Menu Administración")
     while options != len(items):
         if options == len(items):
             print("Exit()")
         elif options == 1:
             empleados = agregar_empleado()
-            mostrar_lista(empleados, "Lista de empleados")
+            funciones.mostrar_lista(empleados, "Lista de empleados")
         elif options == 2:
             clientes = agregar_cliente()
-            mostrar_lista(clientes, "Lista de clientes")
+            funciones.mostrar_lista(clientes, "Lista de clientes")
         else:
             print("Opcion no permitida")
 
-        options = sub_menu(items, "Menu Administración")
+        options = funciones.sub_menu(items, "Menu Administración")
+        
+    return True
 
 def agregar_empleado():
     nombre = input("Nombre: ")

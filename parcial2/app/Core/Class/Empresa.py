@@ -4,9 +4,10 @@ from queue import Queue
 class Empresa:
     """
     Clase: Empresa
+    
     Parametros:
-        argumento1(string): Razon Social de la Empresa
-        argumento2(string): Direccion fisica        
+        argumento1(str): Razon Social de la Empresa
+        argumento2(str): Direccion fisica        
     """
 
     def __init__(self, razon_social, direccion):
@@ -24,6 +25,7 @@ class Empresa:
     def agregar_transporte(self, transporte):
         """
         Se agrega un nuevo transporte a los ya disponibles
+
         Parametros:
             argumento1 (Transporte): transporte a agregar
 

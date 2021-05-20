@@ -16,8 +16,6 @@ identificador = app.empresa.clientes[0].identificador
 #En este punto no se encuentran los transportes, y quedan encolados como pendientes
 app.registrar_paquete(2, 43, 'ttt')
 app.registrar_paquete(234, 43, 'GGG')
-print("Test passed") if app.empresa.paquetes_pendientes.qsize(
-) == 2 else print("Test failed")
 
 #Transportes
 #El transporte no tiene capacidad suficiente, más paquetes quedan pendientes
@@ -28,10 +26,6 @@ app.registrar_paquete(234, 43, 'GGG')
 app.registrar_paquete(2, 43, 'ttt')
 
 
-#Test
-print("Test passed") if app.empresa.paquetes_pendientes.qsize(
-) == 4 else print("Test failed")
-
 #Transportes
 #Todos los paquetes pendientes son cargados
 app.registrar_transporte(datetime.datetime.now(), 23, 100)
@@ -41,7 +35,10 @@ app.registrar_paquete(2, 43, 'ttt')
 app.registrar_paquete(2, 43, 'ttt')
 app.registrar_paquete(2, 43, 'ttt')
 
-#debugging
-print("Test passed") if app.empresa.paquetes_pendientes.qsize(
-) == 0 else print("Test failed")
 
+#Se muestran los tickets
+if len(app.empresa.paquetes_transito) == 9:
+    print("Test passed")
+
+#for ticket in app.empresa.paquetes_transito:
+#    print(ticket.imprimir_ticket())

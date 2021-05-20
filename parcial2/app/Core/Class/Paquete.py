@@ -28,6 +28,7 @@ class PaqueteChico(Paquete):
     def calcular_precio(self, precio_por_kg):
         """ 
         Calculo del precio para un paquete chico
+
         Parametros: 
             argumento1(int): Precio por Kg del transporte
 
@@ -83,6 +84,7 @@ class PaqueteGrande(Paquete):
     def calcular_precio(self, precio_por_kg):
         """ 
         Calculo del precio para un paquete grande
+        
         Parametros: 
             argumento1(int): Precio por Kg del transporte
 
