@@ -3,10 +3,12 @@
 
 
 
-Esta aplicación fue contruida integramente con Python en su versión 3.7.9
+Esta aplicación fue contruida integramente con Python en su versión 3.7.9.
+El repositorio al proyecto junto a todos los ficheros originales se encuentran alojados
+en [github].
 
 
-# **Caracteristicas**
+# **Caracteristicas implementadas**
 
 - Registro de paquetes
 - Registro de clientes
@@ -18,11 +20,20 @@ Esta aplicación fue contruida integramente con Python en su versión 3.7.9
 
 
 > Si bien el sistema se encuentra avanzado, se necesitan agregar
-> funciones para volverlo completamente funcional.
-> 
+> funciones para volverlo completamente funcional. Los problemas 
+> con los cuales me encontré están detallados al final del documento
 
 
 # **Organización**
+Cada fichero se encuentra cuidadosamente documentado con la siguiente estructura:
+1. Descripción breve
+2. Parametros
+3. Argumentos y tipo de dato a recibir
+4. Valor de retorno de la función
+
+
+El proyecto cuenta con la siguiente estructura de directorios:
+
 ## Core
 
 El Core del sistema se encuenta modularizado de la siguiente manera:
@@ -65,28 +76,36 @@ A modo de facilitar la correción se facilitaron algunos archivos para realizar 
 | Fichero | Acción a realizar |
 | ------ | ------ |
 | App | Test de todas la funciones del sistema |
-| Transporte | Prueba de los métodos de la clase Transporte |
+| Empresa | Prueba de los métodos de la clase Empresa |
 | Ticket | Prueba el módulo responsable de la generación de tickets |
 
 
 
 # Instalación
 
-Debian 10 (buster):
+Debian 10 (buster) o distribuciones basadas en Debian:
 ```sh
+sudo apt install virtualenv
+python3 -m env /app
+source env/bin/activate
+
+#copiar el .zip dentro del entorno virutal creado
+unzip archivo.zip
 python3 index.py
+
+#se debe utilizar el interprete del entorno virtual para evitar errores de importación
 ```
 
-Otras distribuciones:
-
-```sh
-python index.py
-```
-
-
+# Problemas a resolver
+1. La persistencia de objetos no pudo ser implementada debido a un error desconocido al momento de ejecutar la biblioteca de pickle. *las lineas fueron comentadas para evitar los errores durante la ejecución 
+2. Las funciones de "entrega de paquetes" aún no fue implementado
+3. Se necesita programar un evento para indicar que los embarques ya salieron del origen 
+4. Se requiere un módulo que actualice de manera constante la fecha global del sistema. *probablemente sea implementado para el trabajo final
 
 
-   
+
+
+   [github]: <https://github.com/educardenas97/paradigmas/tree/master/parcial2/app/>
    [Class]: <https://github.com/educardenas97/paradigmas/tree/master/parcial2/app/Core/Class>
    [Controller]:<https://github.com/educardenas97/paradigmas/tree/master/parcial2/app/Core/>
    [Database]: <https://github.com/educardenas97/paradigmas/tree/master/parcial2/app/Core/>
